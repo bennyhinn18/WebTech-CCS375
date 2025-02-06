@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Map Highlight</title>
+<style>
+  #my-image { /* Give your image an ID */
+    position: relative; /* Needed for absolute positioning of highlights */
+  }
+
+  .highlight {
+    position: absolute;
+    pointer-events: none; /* Prevent the highlight from blocking clicks */
+    outline: 2px solid red; /* Customize color and thickness */
+    opacity: 0.5; /* Make the highlight semi-transparent */
+  }
+
+  .rect-highlight {
+    /* Calculate these values based on your coords */
+    left: 34px;
+    top: 44px;
+    width: 236px; /* 270 - 34 */
+    height: 306px; /* 350 - 44 */
+  }
+
+  .circle-highlight {
+    /* Calculate these values based on your coords and radius */
+    left: 350px; /* 400 - 50 */
+    top: 150px; /* 200 - 50 */
+    width: 100px; /* 50 * 2 */
+    height: 100px; /* 50 * 2 */
+    border-radius: 50%;
+  }
+
+  .poly-highlight {
+    /* For polygons, you'll likely need JavaScript for precise positioning */
+    /* This is a placeholder - it won't be accurate without JS */
+    left: 320px;
+    top: 350px;
+    width: 430px; /* Approximate */
+    height: 200px; /* Approximate */
+
+  }
+</style>
+</head>
+<body>
+
+<img src="map-image.jpg" usemap="#image-map" id="my-image">
+
+<map name="image-map">
+  <area shape="rect" coords="34,44,270,350" href="https://example.com/section1" alt="Section 1">
+  <area shape="circle" coords="400,200,50" href="https://example.com/section2" alt="Section 2">
+  <area shape="poly" coords="340,270,790,450,320,880" href="https://example.com/section3" alt="Section 3">
+</map>
+<p>Click on different parts of the image to navigate to different sections.</p>
+<div class="highlight rect-highlight"></div>
+<div class="highlight circle-highlight"></div>
+<div class="highlight poly-highlight"></div>
+
+</body>
+</html>
